@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_ratings",
+  "info": {
+    "singularName": "event-rating",
+    "pluralName": "event-ratings",
+    "displayName": "EventRating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating": {
+      "type": "integer"
+    },
+    "Comments": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "player",
+        "coach"
+      ]
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "event_ratings"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

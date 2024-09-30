@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "performances",
+  "info": {
+    "singularName": "performance",
+    "pluralName": "performances",
+    "displayName": "Performance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metrics": {
+      "type": "json"
+    },
+    "notes": {
+      "type": "blocks"
+    },
+    "date": {
+      "type": "date"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "performances"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "performances"
+    }
+  }
+}

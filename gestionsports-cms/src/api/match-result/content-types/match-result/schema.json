@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "match_results",
+  "info": {
+    "singularName": "match-result",
+    "pluralName": "match-results",
+    "displayName": "MatchResult"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "homeTeamScore": {
+      "type": "integer"
+    },
+    "awayTeamScore": {
+      "type": "integer"
+    },
+    "details": {
+      "type": "blocks"
+    },
+    "submissionDate": {
+      "type": "datetime"
+    },
+    "match": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::match.match",
+      "inversedBy": "match_result"
+    },
+    "submittedBy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

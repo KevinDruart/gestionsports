@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "location": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "training",
+        "match",
+        "tournament",
+        "other"
+      ]
+    },
+    "team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "events"
+    },
+    "participants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "events"
+    },
+    "attendances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attendance.attendance",
+      "mappedBy": "event"
+    },
+    "performances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::performance.performance",
+      "mappedBy": "event"
+    },
+    "event_ratings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-rating.event-rating",
+      "mappedBy": "event"
+    },
+    "player_performances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::player-performance.player-performance",
+      "mappedBy": "event"
+    }
+  }
+}

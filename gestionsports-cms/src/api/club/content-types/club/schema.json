@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clubs",
+  "info": {
+    "singularName": "club",
+    "pluralName": "clubs",
+    "displayName": "Club",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "website": {
+      "type": "string"
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
+    "subscription": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subscription.subscription"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team",
+      "mappedBy": "club"
+    }
+  }
+}

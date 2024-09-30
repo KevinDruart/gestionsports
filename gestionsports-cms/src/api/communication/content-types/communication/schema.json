@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "communications",
+  "info": {
+    "singularName": "communication",
+    "pluralName": "communications",
+    "displayName": "Communication"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "announcement",
+        "newsletter",
+        "event_notification"
+      ]
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "attachments": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "sender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "communications"
+    }
+  }
+}

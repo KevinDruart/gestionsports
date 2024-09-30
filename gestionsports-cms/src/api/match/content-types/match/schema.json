@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matches",
+  "info": {
+    "singularName": "match",
+    "pluralName": "matches",
+    "displayName": "Match",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "location": {
+      "type": "string"
+    },
+    "referee": {
+      "type": "string"
+    },
+    "playByPlay": {
+      "type": "json"
+    },
+    "homeLineup": {
+      "type": "json"
+    },
+    "awayLineup": {
+      "type": "json"
+    },
+    "notes": {
+      "type": "blocks"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event"
+    },
+    "homeTeam": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "awayTeam": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "match_result": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::match-result.match-result",
+      "mappedBy": "match"
+    }
+  }
+}

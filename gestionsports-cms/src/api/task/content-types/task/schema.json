@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tasks",
+  "info": {
+    "singularName": "task",
+    "pluralName": "tasks",
+    "displayName": "Task"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "dueDate": {
+      "type": "date"
+    },
+    "etat": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "completed",
+        "overdue"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "nettoyage des maillots",
+        "nettoyage des chasubles",
+        "arbitre de touche",
+        "verification des ballons",
+        "inventaires materiel"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event"
+    }
+  }
+}

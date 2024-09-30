@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "competitions",
+  "info": {
+    "singularName": "competition",
+    "pluralName": "competitions",
+    "displayName": "Competition"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "local",
+        "regional",
+        "national",
+        "international",
+        "coupe"
+      ]
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "location": {
+      "type": "string"
+    },
+    "results": {
+      "type": "json"
+    },
+    "notes": {
+      "type": "blocks"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::team.team",
+      "inversedBy": "competitions"
+    }
+  }
+}
